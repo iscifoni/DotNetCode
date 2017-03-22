@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D091213A-1542-425B-9B65-672F4AD37027}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93B9BDA0-347C-4C3C-BF07-1FF146E3B29B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56ECB2F2-AF68-4C3A-BCE9-947DADC436BB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{056747FC-FF00-49A3-B33D-567794ED0B91}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BlackListMiddleware", "src\BlackListMiddleware\BlackListMiddleware.xproj", "{05F2EED2-52B0-4CCB-BF39-54ED95EA561C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BlackListMiddleware", "src\BlackListMiddleware\BlackListMiddleware.xproj", "{E7328F9D-7B81-4A10-B885-9C4142EB509D}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BlackListMiddleware.Web", "src\BlackListMiddleware.Web\BlackListMiddleware.Web.xproj", "{CB2B277E-11CC-4B9E-A405-51A066B7E873}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,15 +20,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{05F2EED2-52B0-4CCB-BF39-54ED95EA561C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05F2EED2-52B0-4CCB-BF39-54ED95EA561C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05F2EED2-52B0-4CCB-BF39-54ED95EA561C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05F2EED2-52B0-4CCB-BF39-54ED95EA561C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7328F9D-7B81-4A10-B885-9C4142EB509D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7328F9D-7B81-4A10-B885-9C4142EB509D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7328F9D-7B81-4A10-B885-9C4142EB509D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7328F9D-7B81-4A10-B885-9C4142EB509D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB2B277E-11CC-4B9E-A405-51A066B7E873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB2B277E-11CC-4B9E-A405-51A066B7E873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2B277E-11CC-4B9E-A405-51A066B7E873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2B277E-11CC-4B9E-A405-51A066B7E873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{05F2EED2-52B0-4CCB-BF39-54ED95EA561C} = {D091213A-1542-425B-9B65-672F4AD37027}
+		{E7328F9D-7B81-4A10-B885-9C4142EB509D} = {93B9BDA0-347C-4C3C-BF07-1FF146E3B29B}
+		{CB2B277E-11CC-4B9E-A405-51A066B7E873} = {93B9BDA0-347C-4C3C-BF07-1FF146E3B29B}
 	EndGlobalSection
 EndGlobal
