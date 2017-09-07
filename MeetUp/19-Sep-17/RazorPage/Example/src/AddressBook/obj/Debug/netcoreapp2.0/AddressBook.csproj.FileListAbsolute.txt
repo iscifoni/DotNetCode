@@ -1,0 +1,16 @@
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.deps.json
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.runtimeconfig.json
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.runtimeconfig.dev.json
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.dll
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.pdb
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.Dal.Abstract.dll
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.Dal.SqlServer.dll
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.Dal.Abstract.pdb
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\bin\Debug\netcoreapp2.0\AddressBook.Dal.SqlServer.pdb
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.csprojResolveAssemblyReference.cache
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.AssemblyInfoInputs.cache
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.AssemblyInfo.cs
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.dll
+C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook\obj\Debug\netcoreapp2.0\AddressBook.pdb
