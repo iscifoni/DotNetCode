@@ -30,8 +30,18 @@ namespace AddressBook.Pages.Person
         {
         }
 
+        public void OnPost()
+        {
+            _DalRepository.AddPerson(Input);   
+        }
+
+        public void OnGetSalva()
+        {
+            _DalRepository.AddPerson((IPerson)Input);
+        }
         public class InsertPersonModel : IPerson
         {
+            private IList<InsertPhoneNumber> _phoneNumbers;
             [Required]
             public string Name { get; set; }
             public int IdPerson { get; set; }
@@ -39,9 +49,24 @@ namespace AddressBook.Pages.Person
             public string Surname { get; set; }
             public string Address { get; set; }
 
-            public IList<IPhoneNumber> PhoneNumbers { get; set; }
+            public IList<InsertPhoneNumber> PhoneNumbers { get => _phoneNumbers; set => _phoneNumbers = value; }
+            IList<IPhoneNumber> IPerson.PhoneNumbers
+            {
+                get => new List<IPhoneNumber>( _phoneNumbers.Cast<IPhoneNumber>());
+                set => _phoneNumbers = new List<InsertPhoneNumber>(value.Cast<InsertPhoneNumber>());
+            }
+        
+        }
+
+        public class InsertPhoneNumber : IPhoneNumber
+        {
+            public int Id { get; set; }
+            public int IdPerson { get; set; }
+            public string Number { get; set; }
+            public NumberTypeEnum NumberType { get; set; }
+            public IPerson Person { get; set; }
         }
     }
-    
-   
+
+
 }

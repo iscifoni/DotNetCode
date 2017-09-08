@@ -1,11 +1,44 @@
 ﻿@page
+@using AddressBook.Dal.Abstract
 @model CreatePersonModel
+
+    
+@section Scripts {
+   
+<script type="text/javascript">
+    var numberPhoneNumber = 0;
+    $(document).ready(function(){
+        $(".add-row").click(function () {
+            
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var numberType = $("#numberType option:selected").text();
+            var number = $("#number").val();
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='0'>" + numberType + "</td><td>" + number + "</td></tr>";
+            $("#customFields tbody").append(markup);
+            numberPhoneNumber++;
+        });
+
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                    numberPhoneNumber--;
+                }
+            });
+        });
+
+
+    });
+</script>
+}
 
 
 <div class="row">
     <div class="col-md-7">
-        <form method="post">
-            <h4>Create a new account.</h4>
+        <form method="post" >
+            <h4>Create a new Person.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
@@ -24,22 +57,44 @@
                 <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="PhoneNumbers">Phone Numbers</label>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Phone Type</th>
-                            <th>Number</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="customFields">
-
-                    </tbody>
-                </table>
+                <div class="row">
+                    <label>Phone Numbers</label>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label asp="Input.PhoneNumbers.NumberType">Number Type</label>
+                        <select asp-items="Html.GetEnumSelectList<NumberTypeEnum>()" class="form-control" id="numberType"> </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp="Input.PhoneNumbers.Number">Number</label>
+                        <input class="form-control" id="number" />
+                    </div>
+                    <div class="col-md-2">
+                        <label></label>
+                        <button type="button" class="btn btn-default add-row">Add Number</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table" id="customFields">
+                        <thead>
+                            <tr>
+                                <th>Phone Type</th>
+                                <th>Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <button type="button" class="btn btn-default delete-row">Delete Number</button>
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-default">Save</button>
+            <div class="form-group">
+                <hr />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default right">Save</button>
+                <a class="btn btn-default" asp-page="index">Go Back</a>
+            </div>
         </form>
     </div>
 </div>

@@ -24,5 +24,7 @@ namespace AddressBook.Dal.SqlServer
         }
         public DbSet<Person> Person { get; set; }
         public DbSet<PhoneNumber> PhoneNumber { get; set; }
+
+
     }
 }

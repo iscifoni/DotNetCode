@@ -5,19 +5,38 @@
 @functions{
 
     [BindProperty]
+    public string Search { get; set; }
+
     public IEnumerable<IPerson> Persons { get; set; }
-    
+
     public IActionResult OnGet()
     {
         Persons = _dalRepository.FindPerson();
         return Page();
     }
 
+    public IActionResult OnPostSearch()
+    {
+        Persons = _dalRepository.FindPerson(Search);
+        return Page();
+    }
 }
 
-<p>
-    <a asp-page="CreatePreson">Create New</a>
-</p>
+<h4>Person list.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <a asp-page="CreatePerson">Create New</a>
+    </div>
+    <div class="col-md-6">
+        <form asp-page-handler="Search">
+            <div class="form-inline">
+                <input type="text" name="Search" class="form-control" /> <button class="btn btn-default">Seach</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -27,10 +46,11 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model.Persons)
+        @foreach (var item in Model.Persons)
         {
             <tr>
-                <td><label asp-for="@item.Name"></label></td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
             </tr>
 
         }

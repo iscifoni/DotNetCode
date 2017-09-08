@@ -19,8 +19,9 @@ namespace AddressBook.Dal.SqlServer
         public IList<IPhoneNumber> PhoneNumbers
         {
             get => (IList<IPhoneNumber>)PhoneNumber;
-            set { }
+            set => PhoneNumber = value as IList<PhoneNumber>;
         }
         internal IList<PhoneNumber> PhoneNumber { get; set; }
+        
     }
 }

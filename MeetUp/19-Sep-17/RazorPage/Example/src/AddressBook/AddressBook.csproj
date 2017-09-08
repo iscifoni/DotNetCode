@@ -17,7 +17,4 @@
     <ProjectReference Include="..\AddressBook.Dal.Abstract\AddressBook.Dal.Abstract.csproj" />
     <ProjectReference Include="..\AddressBook.Dal.SqlServer\AddressBook.Dal.SqlServer.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Person\" />
-  </ItemGroup>
 </Project>
