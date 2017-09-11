@@ -1,9 +1,0 @@
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\bin\Debug\netstandard2.0\AddressBook.Dal.Abstract.deps.json
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\bin\Debug\netstandard2.0\AddressBook.Dal.Abstract.dll
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\bin\Debug\netstandard2.0\AddressBook.Dal.Abstract.pdb
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.csproj.CoreCompileInputs.cache
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.AssemblyInfoInputs.cache
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.AssemblyInfo.cs
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.dll
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.pdb
-C:\Users\ivano.scifoni\Source\Repos\DotNetCode\MeetUp\19-Sep-17\RazorPage\Example\src\AddressBook.Dal.Abstract\obj\Debug\netstandard2.0\AddressBook.Dal.Abstract.csprojResolveAssemblyReference.cache
