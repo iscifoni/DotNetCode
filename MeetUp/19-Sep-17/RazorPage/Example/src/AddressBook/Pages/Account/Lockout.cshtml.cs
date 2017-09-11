@@ -10,7 +10,6 @@ namespace AddressBook.Pages.Account
     {
         public void OnGet()
         {
-
         }
     }
 }

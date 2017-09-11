@@ -6,7 +6,7 @@ using AddressBook.Dal.Abstract;
 
 namespace AddressBook.Dal.SqlServer
 {
-    public class Person:IPerson
+    public class Person : IPerson
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,6 +22,5 @@ namespace AddressBook.Dal.SqlServer
             set => PhoneNumber = value as IList<PhoneNumber>;
         }
         internal IList<PhoneNumber> PhoneNumber { get; set; }
-        
     }
 }

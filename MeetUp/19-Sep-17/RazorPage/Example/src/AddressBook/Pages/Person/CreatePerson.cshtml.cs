@@ -11,7 +11,7 @@ namespace AddressBook.Pages.Person
 {
     public class CreatePersonModel : PageModel
     {
-        private IDalRepository _DalRepository;
+        private IDalRepository _dalRepository;
 
         [BindProperty]
         public InsertPersonModel Input { get; set; }
@@ -23,7 +23,7 @@ namespace AddressBook.Pages.Person
                 throw new ArgumentNullException(nameof(dalRepository));
             }
 
-            _DalRepository = dalRepository;
+            _dalRepository = dalRepository;
         }
 
         public void OnGet()
@@ -32,12 +32,12 @@ namespace AddressBook.Pages.Person
 
         public void OnPost()
         {
-            _DalRepository.AddPerson(Input);   
+            _dalRepository.AddPerson(Input);   
         }
 
         public void OnGetSalva()
         {
-            _DalRepository.AddPerson((IPerson)Input);
+            _dalRepository.AddPerson((IPerson)Input);
         }
         public class InsertPersonModel : IPerson
         {
@@ -52,10 +52,9 @@ namespace AddressBook.Pages.Person
             public IList<InsertPhoneNumber> PhoneNumbers { get => _phoneNumbers; set => _phoneNumbers = value; }
             IList<IPhoneNumber> IPerson.PhoneNumbers
             {
-                get => new List<IPhoneNumber>( _phoneNumbers.Cast<IPhoneNumber>());
+                get => new List<IPhoneNumber>(_phoneNumbers.Cast<IPhoneNumber>());
                 set => _phoneNumbers = new List<InsertPhoneNumber>(value.Cast<InsertPhoneNumber>());
             }
-        
         }
 
         public class InsertPhoneNumber : IPhoneNumber
@@ -67,6 +66,4 @@ namespace AddressBook.Pages.Person
             public IPerson Person { get; set; }
         }
     }
-
-
 }

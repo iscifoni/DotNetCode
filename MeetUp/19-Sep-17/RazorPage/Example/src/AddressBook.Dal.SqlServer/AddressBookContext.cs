@@ -10,7 +10,6 @@ namespace AddressBook.Dal.SqlServer
         public AddressBookContext(DbContextOptions<AddressBookContext> options) 
             : base(options)
         {
-                
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,11 +19,8 @@ namespace AddressBook.Dal.SqlServer
 
             modelBuilder.Entity<Person>()
                 .HasMany((d) => d.PhoneNumber);
-
         }
         public DbSet<Person> Person { get; set; }
         public DbSet<PhoneNumber> PhoneNumber { get; set; }
-
-
     }
 }

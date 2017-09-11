@@ -19,7 +19,7 @@ namespace AddressBook.Dal.SqlServer
         {
             IPerson personToReturn;
 
-            Person localPerson = new Person()
+            var localPerson = new Person()
             {
                 Address = person.Address,
                 IdPerson = person.IdPerson,
@@ -37,7 +37,7 @@ namespace AddressBook.Dal.SqlServer
 
         public IEnumerable<IPerson> AddPerson(IEnumerable<IPerson> persons)
         {
-            foreach(var person in persons)
+            foreach (var person in persons)
             {
                 yield return AddPerson(person);
             }
@@ -45,7 +45,7 @@ namespace AddressBook.Dal.SqlServer
 
         public IPhoneNumber AddPhoneNumber(IPhoneNumber phoneNumber)
         {
-            PhoneNumber localPhoneNumber = new PhoneNumber()
+            var localPhoneNumber = new PhoneNumber()
             {
                 Id = phoneNumber.Id,
                 IdPerson = phoneNumber.IdPerson,
@@ -57,9 +57,9 @@ namespace AddressBook.Dal.SqlServer
             return (IPhoneNumber)_dbContext.PhoneNumber.Add(localPhoneNumber);
         }
 
-        public IEnumerable<IPhoneNumber> AddPhoneNumber(IEnumerable<IPhoneNumber>phoneNumbers)
+        public IEnumerable<IPhoneNumber> AddPhoneNumber(IEnumerable<IPhoneNumber> phoneNumbers)
         {
-            foreach(var phoneNumber in phoneNumbers)
+            foreach (var phoneNumber in phoneNumbers)
             {
                 yield return AddPhoneNumber(phoneNumber);
             }
@@ -72,7 +72,7 @@ namespace AddressBook.Dal.SqlServer
             {
                 data = data.Where((p) => p.Number.Equals(number));
             }
-            return data.Include(p=> p.Person).ToList().Cast<IPhoneNumber>();
+            return data.Include(p => p.Person).ToList().Cast<IPhoneNumber>();
         }
 
         public IEnumerable<IPhoneNumber> FindNumber()
@@ -87,14 +87,12 @@ namespace AddressBook.Dal.SqlServer
             {
                 data = data.Where((p) => condition.Contains(p.Name) || condition.Contains(p.Surname));
             }
-            return data.Include(p=>p.PhoneNumber).ToList().Cast<IPerson>();
+            return data.Include(p => p.PhoneNumber).ToList().Cast<IPerson>();
         }
 
         public IEnumerable<IPerson> FindPerson()
         {
             return FindPerson(null);
         }
-        
-
     }
 }

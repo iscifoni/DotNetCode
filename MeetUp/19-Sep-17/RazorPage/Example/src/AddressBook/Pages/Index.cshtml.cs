@@ -11,7 +11,6 @@ namespace AddressBook.Pages
     {
         public void OnGet()
         {
-
         }
     }
 }
