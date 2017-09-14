@@ -23,5 +23,16 @@ namespace AddressBook.Dal.SqlServer
         }
 
         internal Person InternalPerson { get; set; }
+
+        public  static PhoneNumber Create(IPhoneNumber p)
+        {
+            return new PhoneNumber()
+            {
+                Id = p.Id,
+                IdPerson = p.IdPerson,
+                Number = p.Number,
+                NumberType = p.NumberType
+            };
+        }
     }
 }

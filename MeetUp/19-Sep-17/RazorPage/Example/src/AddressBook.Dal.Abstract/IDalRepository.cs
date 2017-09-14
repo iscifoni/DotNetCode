@@ -6,6 +6,9 @@ namespace AddressBook.Dal.Abstract
 {
     public interface IDalRepository
     {
+        IPerson GetPersonById(int id);
+        IPhoneNumber GetPhoneNumberById(int id);
+
         IEnumerable<IPerson> FindPerson(string condition);
         IEnumerable<IPerson> FindPerson();
         IEnumerable<IPhoneNumber> FindNumber(string number);

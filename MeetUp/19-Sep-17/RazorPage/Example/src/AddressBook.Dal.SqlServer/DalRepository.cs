@@ -94,5 +94,20 @@ namespace AddressBook.Dal.SqlServer
         {
             return FindPerson(null);
         }
+
+        public IPerson GetPersonById(int id)
+        {
+            return (Person)_dbContext.Person
+                                .Where(p => p.IdPerson == id)
+                                .Include(p => p.PhoneNumber)
+                                .SingleOrDefault();
+        }
+
+        public IPhoneNumber GetPhoneNumberById(int id)
+        {
+            return (PhoneNumber)_dbContext.PhoneNumber
+                                    .Where(p => p.Id == id)
+                                    .SingleOrDefault();
+        }
     }
 }

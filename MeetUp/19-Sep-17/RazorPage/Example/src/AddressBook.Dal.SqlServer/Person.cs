@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using AddressBook.Dal.Abstract;
 
 namespace AddressBook.Dal.SqlServer
@@ -18,9 +19,10 @@ namespace AddressBook.Dal.SqlServer
         [NotMapped]
         public IList<IPhoneNumber> PhoneNumbers
         {
-            get => (IList<IPhoneNumber>)PhoneNumber;
-            set => PhoneNumber = value as IList<PhoneNumber>;
+            get => new List<IPhoneNumber>(PhoneNumber.Cast<IPhoneNumber>());
+            set => PhoneNumber = value.Select(p => AddressBook.Dal.SqlServer.PhoneNumber.Create(p)).ToList();
         }
+        
         internal IList<PhoneNumber> PhoneNumber { get; set; }
     }
 }

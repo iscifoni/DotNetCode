@@ -1,0 +1,109 @@
+﻿@page "{PersonId:int}"
+@using AddressBook.Dal.Abstract
+@model ModifyPersonModel
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+    var numberPhoneNumber = 0;
+    $(document).ready(function(){
+        $(".add-row").click(function () {
+
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var numberType = $("#numberType option:selected").text();
+            var number = $("#number").val();
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='0'>" + numberType + "</td><td>" + number + "</td></tr>";
+            $("#customFields tbody").append(markup);
+            numberPhoneNumber++;
+        });
+
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                    numberPhoneNumber--;
+                }
+            });
+        });
+
+
+    });
+    </script>
+}
+
+
+<div class="row">
+    <div class="col-md-7">
+        <form method="post">
+            <input type="hidden" asp-for="Input.IdPerson" />
+            <h4>Create a new Person.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Name"></label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Surname"></label>
+                <input asp-for="Input.Surname" class="form-control" />
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Address"></label>
+                <textarea cols="10" rows="6" asp-for="Input.Address" class="form-control"></textarea>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label>Phone Numbers</label>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label asp="Input.PhoneNumbers.NumberType">Number Type</label>
+                        <select asp-items="Html.GetEnumSelectList<NumberTypeEnum>()" class="form-control" id="numberType"> </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp="Input.PhoneNumbers.Number">Number</label>
+                        <input class="form-control" id="number" />
+                    </div>
+                    <div class="col-md-2">
+                        <label></label>
+                        <button type="button" class="btn btn-default add-row">Add Number</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table" id="customFields">
+                        <thead>
+                            <tr>
+                                <th>Phone Type</th>
+                                <th>Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>@for(var idx = 0; idx < Model.Input.PhoneNumbers.Count(); idx++){
+                            <text>
+                            <tr>
+                                <td><input type='checkbox' name='record'></td>
+                                <td><input type='hidden' name='Model.Input.PhoneNumbers[@idx].Number' value='@Model.Input.PhoneNumbers[idx].Number'>@Model.Input.PhoneNumbers[idx].Number</td>
+                                <td></td>
+                            </tr>
+                            </text>
+                        }</tbody>
+                    </table>
+                    <button type="button" class="btn btn-default delete-row">Delete Number</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <hr />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default right">Save</button>
+                <a class="btn btn-default" asp-page="index">Go Back</a>
+            </div>
+        </form>
+    </div>
+</div>
