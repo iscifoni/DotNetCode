@@ -7,20 +7,20 @@ using AddressBook.Dal.Abstract;
 
 namespace AddressBook.Dal.SqlServer
 {
-    public class Person : IPerson
+    public class Person : PersonBase<PhoneNumber>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdPerson { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Address { get; set; }
+        public override int IdPerson { get; set; }
+        public override string Name { get; set; }
+        public override string Surname { get; set; }
+        public override string Address { get; set; }
 
         [NotMapped]
-        public IList<IPhoneNumber> PhoneNumbers
+        public override IList<PhoneNumber> PhoneNumbers
         {
-            get => new List<IPhoneNumber>(PhoneNumber.Cast<IPhoneNumber>());
-            set => PhoneNumber = value.Select(p => AddressBook.Dal.SqlServer.PhoneNumber.Create(p)).ToList();
+            get => PhoneNumber;
+            set => PhoneNumber = value;
         }
         
         internal IList<PhoneNumber> PhoneNumber { get; set; }

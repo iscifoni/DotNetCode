@@ -7,32 +7,21 @@ using AddressBook.Dal.Abstract;
 
 namespace AddressBook.Dal.SqlServer
 {
-    public class PhoneNumber : IPhoneNumber
+    public class PhoneNumber : PhoneNumberBase
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public int IdPerson { get; set; }
-        public string Number { get; set; }
-        public NumberTypeEnum NumberType { get; set; }
+        public override int Id { get; set; }
+        public override int IdPerson { get; set; }
+        public override string Number { get; set; }
+        public override NumberTypeEnum NumberType { get; set; }
 
         [NotMapped]
-        public IPerson Person
+        public override IPerson Person
         {
-            get => (IPerson)InternalPerson;
+            get => InternalPerson;
             set { }
         }
 
         internal Person InternalPerson { get; set; }
-
-        public  static PhoneNumber Create(IPhoneNumber p)
-        {
-            return new PhoneNumber()
-            {
-                Id = p.Id,
-                IdPerson = p.IdPerson,
-                Number = p.Number,
-                NumberType = p.NumberType
-            };
-        }
     }
 }

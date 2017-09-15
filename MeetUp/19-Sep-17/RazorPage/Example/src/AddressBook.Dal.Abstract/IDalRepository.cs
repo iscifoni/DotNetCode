@@ -18,5 +18,9 @@ namespace AddressBook.Dal.Abstract
         IEnumerable<IPerson> AddPerson(IEnumerable<IPerson> person);
         IPhoneNumber AddPhoneNumber(IPhoneNumber phoneNumber);
         IEnumerable<IPhoneNumber> AddPhoneNumber(IEnumerable<IPhoneNumber> phoneNumber);
+
+        void DeletePerson(int personId);
+
+        void UpdatePerson(IPerson person);
     }
 }

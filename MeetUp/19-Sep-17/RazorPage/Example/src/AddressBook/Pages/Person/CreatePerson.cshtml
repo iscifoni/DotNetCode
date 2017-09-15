@@ -13,8 +13,9 @@
             var name = $("#name").val();
             var email = $("#email").val();
             var numberType = $("#numberType option:selected").text();
+            var numberTypeValue = $("#numberType option:selected").val();
             var number = $("#number").val();
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='0'>" + numberType + "</td><td>" + number + "</td></tr>";
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].NumberType' value='" + numberTypeValue + "'>" + numberType + "</td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='" + number + "'>" + number + "</td></tr>";
             $("#customFields tbody").append(markup);
             numberPhoneNumber++;
         });
@@ -78,9 +79,10 @@
                     <table class="table" id="customFields">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Phone Type</th>
                                 <th>Number</th>
-                                <th></th>
+                                
                             </tr>
                         </thead>
                         <tbody></tbody>

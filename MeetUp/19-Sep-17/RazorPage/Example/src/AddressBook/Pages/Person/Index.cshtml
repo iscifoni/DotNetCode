@@ -51,7 +51,7 @@
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Surname</td>
-                <td><a asp-page="ModifyPerson" asp-route-PersonId="1">Modify</a></td>
+                <td><a asp-page="ModifyPerson" asp-route-PersonId="@item.IdPerson">Modify</a> <a asp-page="RemovePerson" asp-route-PersonId="@item.IdPerson">Remove</a></td>
             </tr>
 
         }

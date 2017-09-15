@@ -1,0 +1,28 @@
+﻿@page "{PersonId:int}"
+@using AddressBook.Dal.Abstract
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@model RemovePersonModel
+@functions{
+    public class RemovePersonModel : PageModel
+    {
+        IDalRepository _dalRepository;
+
+        public RemovePersonModel(IDalRepository dalRepository)
+        {
+            _dalRepository = dalRepository;
+        }
+
+        [FromRoute]
+        public int PersonId { get; set; }
+
+        public IActionResult OnGet()
+        {
+            _dalRepository.DeletePerson(PersonId);
+
+            return RedirectToPage("index");
+        }
+    }
+}
+
+

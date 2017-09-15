@@ -31,46 +31,37 @@ namespace AddressBook.Pages.Person
         }
         public void OnGet()
         {
-            Input = ModifyItemPersonModel.Create(_dalRepository.GetPersonById(PersonId));
+            IPerson response = new ModifyItemPersonModel();
+            response = _dalRepository.GetPersonById(PersonId);
+            Input = (ModifyItemPersonModel)ModifyItemPersonModel.Create<ModifyItemPersonModel>(response);
+            
+            //    var response = _dalRepository.GetPersonById(PersonId);
+            //Input = response; 
         }
 
-        public class ModifyItemPersonModel : IPerson
+        public IActionResult OnPost()
         {
-            private IList<ModifyItemPhoneNumber> _phoneNumbers;
-            [Required]
-            public string Name { get; set; }
-            public int IdPerson { get; set; }
-            [Required]
-            public string Surname { get; set; }
-            public string Address { get; set; }
-
-            public IList<ModifyItemPhoneNumber> PhoneNumbers { get => _phoneNumbers; set => _phoneNumbers = value; }
-            IList<IPhoneNumber> IPerson.PhoneNumbers
-            {
-                get => new List<IPhoneNumber>(_phoneNumbers.Cast<IPhoneNumber>());
-                set => _phoneNumbers = new List<ModifyItemPhoneNumber>(value.Cast<ModifyItemPhoneNumber>());
-            }
-
-            public static ModifyItemPersonModel Create(IPerson person)
-            {
-                return  new ModifyItemPersonModel()
-                {
-                    Address = person.Address,
-                    IdPerson = person.IdPerson,
-                    Name = person.Name,
-                    Surname = person.Surname,
-                    PhoneNumbers = new List<ModifyItemPhoneNumber>(person.PhoneNumbers.Cast<ModifyItemPhoneNumber>())
-                };
-            }
+            _dalRepository.UpdatePerson(Input);
+            return RedirectToPage("index");
         }
 
-        public class ModifyItemPhoneNumber : IPhoneNumber
+        public class ModifyItemPersonModel : PersonBase<ModifyItemPhoneNumber>
         {
-            public int Id { get; set; }
-            public int IdPerson { get; set; }
-            public string Number { get; set; }
-            public NumberTypeEnum NumberType { get; set; }
-            public IPerson Person { get; set; }
+            [Required]
+            public override string Name { get; set; }
+            public override int IdPerson { get; set; }
+            [Required]
+            public override string Surname { get; set; }
+            public override string Address { get; set; }
+        }
+
+        public class ModifyItemPhoneNumber : PhoneNumberBase
+        {
+            //public int Id { get; set; }
+            //public int IdPerson { get; set; }
+            //public string Number { get; set; }
+            //public NumberTypeEnum NumberType { get; set; }
+            //public IPerson Person { get; set; }
         }
     }
 }

@@ -6,15 +6,16 @@
 @section Scripts {
 
     <script type="text/javascript">
-    var numberPhoneNumber = 0;
+    var numberPhoneNumber = @Model.Input.PhoneNumbers.Count();
     $(document).ready(function(){
         $(".add-row").click(function () {
 
             var name = $("#name").val();
             var email = $("#email").val();
             var numberType = $("#numberType option:selected").text();
+            var numberTypeValue = $("#numberType option:selected").val();
             var number = $("#number").val();
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='0'>" + numberType + "</td><td>" + number + "</td></tr>";
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].NumberType' value='" + numberTypeValue + "'>" + numberType + "</td><td><input type='hidden' name='Input.PhoneNumbers[" + numberPhoneNumber + "].Number' value='" + number +"'>" + number + "</td></tr>";
             $("#customFields tbody").append(markup);
             numberPhoneNumber++;
         });
@@ -79,17 +80,20 @@
                     <table class="table" id="customFields">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Phone Type</th>
                                 <th>Number</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>@for(var idx = 0; idx < Model.Input.PhoneNumbers.Count(); idx++){
                             <text>
                             <tr>
                                 <td><input type='checkbox' name='record'></td>
-                                <td><input type='hidden' name='Model.Input.PhoneNumbers[@idx].Number' value='@Model.Input.PhoneNumbers[idx].Number'>@Model.Input.PhoneNumbers[idx].Number</td>
-                                <td></td>
+                                <td><input type='hidden' name='Input.PhoneNumbers[@idx].NumberType' value='@Model.Input.PhoneNumbers[idx].NumberType'>@Model.Input.PhoneNumbers[idx].NumberType.ToString()</td>
+                                <td>
+                                    <input type='hidden' name='Input.PhoneNumbers[@idx].Id' value='@Model.Input.PhoneNumbers[idx].Id'>
+                                    <input type='hidden' name='Input.PhoneNumbers[@idx].Number' value='@Model.Input.PhoneNumbers[idx].Number'>@Model.Input.PhoneNumbers[idx].Number</td>
+                                
                             </tr>
                             </text>
                         }</tbody>

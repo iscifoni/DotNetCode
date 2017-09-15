@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AddressBook.Dal.Abstract
 {
-    class PersonBase
+    public class PersonBase : PersonBase<PhoneNumberBase>
     {
     }
 }

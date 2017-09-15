@@ -30,9 +30,10 @@ namespace AddressBook.Pages.Person
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            _dalRepository.AddPerson(Input);   
+            _dalRepository.AddPerson(Input);
+            return RedirectToPage("index");
         }
 
         public void OnGetSalva()
